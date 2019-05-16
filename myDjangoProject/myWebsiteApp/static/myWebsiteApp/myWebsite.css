@@ -1,0 +1,60 @@
+.navbar{
+	background-color: rgb(65, 127, 8) !important;
+}
+.navbar-brand{
+	color: black !important;
+}
+.nav li a{
+	color:white !important;
+
+}
+.nav li.active a{
+    color: black !important;
+   	background-color: rgba(70, 70, 70, 0.3) !important;
+
+}
+.nav li a:hover{
+	color: black !important;
+	background-color: rgba(70, 70, 70, 0.3) !important;
+}
+.nav li{
+	padding: 0px 15px 0px 15px !important;
+}
+footer{ 
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	background-color: rgb(65, 127, 8);
+	color: black;
+	width: auto;
+	height: 200px;
+	margin-bottom: 15px;
+}
+.dropdown-menu .active, .dropdown-menu li a:hover{
+	margin: 0px;
+	background-color: rgb(65, 127, 8) !important;
+}
+.main1, .main2, .main3{
+	position: relative;
+}
+.back1, .back2, .back3{
+	position: absolute;
+	height: 280px;
+	width: 360px;
+	left: 48.5%;
+	top:50%;
+	transform: translate(-50%, -50%);
+	/*background-color: rgb(65, 127, 8);*/
+}
+.texty1, .texty2, .texty3{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: black;
+	transform: translate(-50%,-50%);
+	opacity: 0;
+}
+.main1:hover .back1, .main2:hover .back2, .main3:hover .back3{
+	background-color: rgba(198, 230, 198, 0.6); 
+}
+.main1:hover .texty1, .main2:hover .texty2, .main3:hover .texty3{
+	opacity: 1;
+}

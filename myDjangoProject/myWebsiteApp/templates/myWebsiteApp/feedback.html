@@ -1,0 +1,59 @@
+{%extends "myWebsiteApp/base.html"%}
+{%block feedback %}
+	active
+{%endblock feedback %}
+	{%block content%}
+		<b style=" display: block; text-align: center;">Give us your order and feedback here</b>
+		<form action="" style="background-color: rgba(65, 127, 8, 0.6); border:1px black solid;
+
+				margin: 20px 30%; text-align: center; font-weight: bold;" method="POST">
+			{% csrf_token %}
+				Name:
+				<input type="text" name="name" required style="margin: 5px;">
+			<div>
+				Address:
+				<input type ="text" name="address" required style="margin: 5px;">
+			</div>
+			<!--<div>
+				Date of birth:<br>
+				<input type="number" placeholder="day/month/year" name="birthDate"><br>
+			</div>-->
+			<div>
+				email:
+			<input type="email" name="email" required style="margin: 5px;">
+			</div>
+			<div>
+			Gender:
+			<input type="radio" name="gender" value='male' >Male<br>
+			<input type="radio" name="gender" value="female" style="margin-left: 70px;">Female<br>
+			<input type="radio" name="gender" value="other" style="margin-left: 70px;" checked>Others<br>
+			</div>
+
+			<div>
+			item you want to order:<br>
+			<select name="item">
+				<option value="momo" selected>momo</option>
+				<option value="pizza">pizza</option>
+				<option value="chwela">chwela baji</option>
+				<option value="newari khaja set">newari khaja set</option>
+				<option value="chicken chilly">chicken chilly</option>
+				<option value="coffee">coffee</option>
+			</select>
+			</div>
+
+			<div>
+			quantity you want:
+			<br>
+			<input type="number" name="quantity" required style="padding: 5px;">
+			</div>
+
+
+			<div>
+			Your password:
+			<input type="password" placeholder="at least 8 characters" name="password" minlength="8" style="margin: 5px;"></div>
+			<div>Your suggestion:
+				<textarea name="suggestion" style="margin: 5px;"></textarea>
+			</div>
+			<input type="submit" name="submit" value="Submit" style="margin: 5px;">
+		</form>
+	{%endblock content%}

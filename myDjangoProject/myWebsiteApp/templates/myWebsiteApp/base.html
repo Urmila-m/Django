@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jhiu Khaja Pasa</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="{% static 'myWebsiteApp/myWebsite.css' %}">
+  	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+</head>
+<body>
+	<div class="container" style="background-color: rgba(65, 127, 8, 0.5);">
+		<nav class="navbar navbar-default navbar-expand-lg">
+			    <div class="navbar-header">
+	      			<a class="navbar-brand" href="#">Jhiu Khaja Pasa</a>
+	      			<button class="navbar-toggle"  data-toggle="collapse" type="button" data-target="#myNavbar">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+					</button>
+	    		</div>
+	    		<div class="collapse navbar-collapse navbar-toggleable-md" id="myNavbar" style="width:100%">
+		    		<ul class="nav navbar-nav mr-auto">
+		      			<li class="{% block home %}{% endblock home %} "><a data-toggle="tooltip" title="home page" href="{% url 'myWebsiteApp_myWebsite' %}">Home <div class="glyphicon glyphicon-home"></div></a></li>
+		      			<li class="{% block about %}{% endblock about %}"><a href="{% url 'myWebsiteApp_about' %}">About <div class="glyphicon glyphicon-file"></div></a></li>
+		      			<li class="dropdown {% block items %}{% endblock items %}"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Items <div class="glyphicon glyphicon-glass"></div>
+		      				<span class="caret"></span></a>
+		      				<ul class="dropdown-menu">
+		      					<li style="background-color: rgba(65, 127, 8, 0.5)"><a href="{% url 'myWebsiteApp_newari' %}">newari food</a></li>
+		      					<li style="background-color: rgba(65, 127, 8, 0.5)"><a href="{% url 'myWebsiteApp_indian' %}">indian food</a></li>
+		      					<li style="background-color: rgba(65, 127, 8, 0.5)"><a href="{% url 'myWebsiteApp_chinese' %}">chinese food</a></li>
+		      				</ul>
+		      			</li>
+						{% if user.is_authenticated%}
+		      			<li class="{% block feedback %}{% endblock feedback%}"><a href="{% url 'myWebsiteApp_feedback' %}">Order and Feedback <div class="glyphicon glyphicon-envelope"></div></a></li>
+		 				{% endif %}
+		    		</ul>
+					-<ul class="nav navbar-nav" style="float:right;">
+					{% if user.is_authenticated %}
+						<li class="{% block logout%}{% endblock logout%}" style="padding:0px !important;"><a href="{% url 'logout'%}">Logout</a></li>
+					{% else %}
+						<li class="{% block login %}{% endblock login%}" style="padding:0px !important;"><a href="{% url 'login'%}">Login</a></li>
+						<li class="{% block register %}{% endblock register%}" style="padding:0px !important;"><a href="{% url 'register'%}">Register</a></li>
+					{% endif %}
+					</ul>
+		    	</div>
+		</nav>
+		 {% if messages %}
+            {% for message in messages %}
+		<!--to show alert/info registration successful, just after registration, on reload it disappears-->
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+
+        {% block content%}{%endblock content%}
+
+        <footer>
+            <div>
+                <p style="text-align: center; padding: auto; font-size: 30px;">Jhiu khaja pasa</p>
+                <img src="/media/myDjangoProject/logoo.png" style="display: block; width: 50px; height: 50px; margin: auto;">
+                    <p style="text-align: center;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+	    </footer>
+	</div>
+</body>
+</html>

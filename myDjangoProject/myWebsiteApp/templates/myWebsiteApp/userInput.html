@@ -1,0 +1,39 @@
+</!DOCTYPE html>
+<html>
+<head>
+	<title>User Input Section</title>
+</head>
+<body>
+	<div style="margin-top: 20px;" align="center"><h1>User Input Section</h1></div>
+	<div style="padding: 15px;" align="center">
+		<label >Enter 1st text paragraph:</label>
+		<textarea style="margin-left: 10px;" id="first_input"></textarea>
+	</div>
+	<div style="padding: 15px;" align="center">
+		<label>Enter 2nd text paragraph:</label>	
+		<textarea style="margin-left: 10px;" id="second_input"></textarea>
+
+	</div>
+	<div style="padding: 15px;" align="center">
+		<label>Enter 3rd text paragraph:</label>	
+		<textarea style="margin-left: 10px;" id="third_input"></textarea>
+
+	</div>
+	<div align="center">
+	<button style="margin-left: 15px; align-items: flex-start;" onclick="getText()">Submit</button>
+	</div>
+
+<script>
+    function getText(){
+        var input1=document.getElementById("first_input").value;
+        var input2=document.getElementById("second_input").value;
+        var input3=document.getElementById("third_input").value;
+
+        localStorage.setItem("first", input1);
+        localStorage.setItem("second", input2);
+        localStorage.setItem("third", input3);
+        window.location.href = "{% url 'myWebsiteApp_myWebsite' %}";
+    }
+</script>
+</body>
+</html>

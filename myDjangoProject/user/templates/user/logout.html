@@ -1,0 +1,8 @@
+{% extends "myWebsiteApp/base.html" %}
+{% block logout%}
+    active
+{% endblock logout%}
+{% block content %}
+<div align="center"><h3>Logged out successfully!!</h3></div>
+    <div align="center" style="height: 300px;"><h3><a href="{% url 'login' %}">Login again </a></h3></div>
+{% endblock content %}
