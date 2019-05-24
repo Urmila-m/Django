@@ -3,7 +3,7 @@ from user.forms import UserRegistration
 
 
 def register(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         user = UserRegistration(request.POST)
         if user.is_valid():
             user.save()

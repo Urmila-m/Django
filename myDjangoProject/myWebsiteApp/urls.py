@@ -10,6 +10,7 @@ urlpatterns = [
     path('newari/', views.newari, name="myWebsiteApp_newari"),
     path('about/', views.about, name="myWebsiteApp_about"),
     path('chinese/', views.chinese, name="myWebsiteApp_chinese"),
+    path('myFilledForms/', views.getMyFilledForms, name="myFilledForms"),
     path('test/', views.myNextAttempt, name="jpt")
 ]
 

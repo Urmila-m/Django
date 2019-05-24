@@ -1,0 +1,25 @@
+{% extends "myWebsiteApp/base.html" %}
+
+{% block username %}
+    active
+{% endblock username %}
+
+{% block content %}
+    {% if allForms %}
+        {% for form in allForms%}
+            <div style="border: solid 1px black; margin: 10px; padding: 20px; display: inline-block;">
+                <div><b>Name</b>={{form.name}}</div>
+                <div><b>Address</b>={{form.address}}</div>
+                <div><b>Email</b>={{form.email}}</div>
+                <div><b>Password</b>={{form.password}}</div>
+                <div><b>Suggestion</b>={{form.suggestion}}</div>
+                <div><b>Gender</b>={{form.gender}}</div>
+                <div><b>Time</b>={{form.date_time}}</div>
+                <div><b>Item</b>={{form.item}}</div>
+                <div><b>Quantity</b>={{form.quantity}}</div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div>this is a simple experiment</div>
+    {% endif %}
+{% endblock content %}

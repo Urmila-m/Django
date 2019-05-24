@@ -28,6 +28,10 @@ urlpatterns = [
     path('myWebsiteApp/', include('myWebsiteApp.urls')),
     path('login/', auth_views.LoginView.as_view(template_name="user/login.html"), name="login"),
     path('logout/', auth_views.LogoutView.as_view(template_name="user/logout.html"), name="logout"),
+    path('reset-password/', auth_views.PasswordResetView.as_view(template_name="user/password_reset.html"), name="reset_password"),
+    path('reset-password/done/', auth_views.PasswordResetDoneView.as_view(template_name="user/password_reset_email_sent.html"), name="password_reset_done"),
+    path('reset-password-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="user/password_reset_confirm.html"), name="password_reset_confirm"),
+    path('reset-password-complete', auth_views.LogoutView.as_view(template_name="user/password_reset_complete.html"), name="password_reset_complete"),
     path('register/', user_view.register, name="register")
 ]
 

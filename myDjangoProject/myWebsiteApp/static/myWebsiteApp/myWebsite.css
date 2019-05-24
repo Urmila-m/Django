@@ -20,14 +20,16 @@
 .nav li{
 	padding: 0px 15px 0px 15px !important;
 }
+
 footer{ 
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	background-color: rgb(65, 127, 8);
 	color: black;
-	width: auto;
+	width: inherit;
 	height: 200px;
 	margin-bottom: 15px;
 }
+
 .dropdown-menu .active, .dropdown-menu li a:hover{
 	margin: 0px;
 	background-color: rgb(65, 127, 8) !important;

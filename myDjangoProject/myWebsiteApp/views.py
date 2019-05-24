@@ -20,9 +20,14 @@ def indian(request):
     return render(request, 'myWebsiteApp/indian.html')
 
 @login_required
+def getMyFilledForms(request):
+    allForms = {'allForms' : MyModel.objects.filter(user=request.user)}
+    return render(request, 'myWebsiteApp/MyFeedbackForms.html', allForms)
+
+@login_required
 def feedback(request):
-    if request.method== 'POST':
-        myModel= MyModel()
+    if request.method == 'POST':
+        myModel= MyModel(user = request.user)
         getFeedbackObject = GetFeedback(request.POST)
         if getFeedbackObject.is_valid():
             myModel.name = getFeedbackObject.cleaned_data['name']
@@ -35,7 +40,9 @@ def feedback(request):
             myModel.suggestion = getFeedbackObject.cleaned_data['suggestion']
 
             myModel.save()
-            messages.success(request, f'Form registered successfully with name {myModel.name}!')
+            # getFeedbackObject.save()
+            name = getFeedbackObject.cleaned_data['name']
+            messages.success(request, f'Form registered successfully with name {name}!')
             return redirect('../myWebsite')
 
         else:
