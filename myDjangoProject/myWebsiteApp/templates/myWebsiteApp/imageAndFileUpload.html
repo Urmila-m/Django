@@ -1,0 +1,24 @@
+{% extends "myWebsiteApp/base.html" %}
+{% load crispy_forms_tags %} <!-- to style form -->
+{% block upload %}
+	active
+{% endblock upload%}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+			<div style="padding: 20px;">
+                Select image
+                <input type="file" name="imageUpload">
+            </div>
+            <div style="padding: 20px;">
+                Select file
+                <input type="file" name="fileUpload">
+            </div>
+            <div style="padding: 20px;">
+                <button type="submit" style="display: block;">Submit</button>
+            </div>
+		</form>
+	</div>
+
+{% endblock content %}

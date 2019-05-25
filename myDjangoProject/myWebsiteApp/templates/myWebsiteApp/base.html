@@ -40,6 +40,7 @@
 			 				{% endif %}
 			    		</ul>
 						-<ul class="nav navbar-nav" style="float:right;">
+							<li class="{% block upload %}{% endblock upload%}"><a href="{% url 'uploadImageAndFile' %}">Upload <div class="glyphicon glyphicon-upload"></div></a></li>
 						{% if user.is_authenticated %}
 							<li class="{% block username %}{% endblock username%}"><a href="{% url 'myFilledForms' %}">{{user.username}} <div class="glyphicon glyphicon-user"></div></a></li>
 							<li class="{% block logout%}{% endblock logout%}" style="padding:0px !important;"><a href="{% url 'logout'%}">Logout</a></li>

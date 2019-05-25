@@ -1,0 +1,16 @@
+1.create a new file using cmd= cd.>file_name.extension("cd.>" = create a new file)
+2.switch to administrator account in windows=net user administrator /active:yes
+3."python -m SimpleHTTPServer" serve files in port 8000.when two pc connected in a single network, can be used to share files using the browser
+   "pyhton -m http.server port" if above command doesnt work.
+4.turn on mobile-hotspot in your PC to share its network in your mobile
+5.use usb tethering or hotspot to share your mobile's network in your PC
+6.you can record your screen video in windows 10 using "Game DVR(Digital Video Recording)".Game DVR is a built in tool for screen recording.This facility is provided by xbox
+  (video gaming brand developed by Microsoft). "Game bar" is the graphical interface that allows user to record gameplay, save clips,
+  and take screenshots with the Game DVR.Use the shortcut "Win+G" to open Game bar, "Win+Alt+R" to start/stop recording, and "Win+Alt+M" to turn on/off microphone.
+  You can change some features in Game DVR from Settings/Gaming.You can change the location of videos/screenshots saved in your computer by moving the captures folder
+  anywhere you want. you can see the current saving directory from settings/gaming/gameDVR.
+7. alt+tab=show all active windows/whatever program is opened.
+8. win+tab=to see the history of the programs/apps we used
+9. alt+f4=to close a program
+10. win+s=open cortana(search)
+11. Ctrl+L then type cmd=open command prompt with directory in the folder where you pressed Ctrl+L.

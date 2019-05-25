@@ -11,6 +11,7 @@ urlpatterns = [
     path('about/', views.about, name="myWebsiteApp_about"),
     path('chinese/', views.chinese, name="myWebsiteApp_chinese"),
     path('myFilledForms/', views.getMyFilledForms, name="myFilledForms"),
+    path('uploadImageAndFile/', views.uploadImageAndFile, name="uploadImageAndFile"),
     path('test/', views.myNextAttempt, name="jpt")
 ]
 

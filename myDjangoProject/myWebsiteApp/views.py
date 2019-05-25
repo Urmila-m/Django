@@ -1,8 +1,11 @@
 from django.contrib.auth.decorators import login_required
+from django.core.files.uploadedfile import UploadedFile
+from django.core.files.uploadhandler import FileUploadHandler
 from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from forms import GetFeedback
+from forms import GetFeedback, ImageAndFile
+from myWebsiteApp.models import ImageAndFileModel
 from myWebsiteApp.models import MyModel
 from user.forms import UserRegistration
 
@@ -51,6 +54,20 @@ def feedback(request):
 
     else:
         return render(request, 'myWebsiteApp/feedback.html')
+
+@login_required
+def uploadImageAndFile(request):
+    if request.method == 'POST':
+        myForm = ImageAndFile(request.POST, request.FILES)
+        if myForm.is_valid():
+            file = ImageAndFileModel(file=request.FILES['fileUpload'], image=request.FILES['imageUpload'])
+            file.save()
+            return redirect('../myWebsite')
+        else:
+            err = myForm.errors.as_data()
+            return HttpResponse(err)
+    else:
+        return render(request, 'myWebsiteApp/imageAndFileUpload.html')
 
 def newari(request):
     return render(request, 'myWebsiteApp/newari.html')

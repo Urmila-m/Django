@@ -1,6 +1,4 @@
 from django import forms
-from myWebsiteApp.models import MyModel
-
 
 class GetFeedback(forms.Form):
     GENDER =[('male', 'Male'), ('female', 'Female'), ('others', 'Others')]
@@ -18,3 +16,7 @@ class GetFeedback(forms.Form):
     #     model = MyModel
     #     fields = ['name', 'address', 'email', 'gender', 'item', 'quantity', 'password', 'suggestion']
     #
+
+class ImageAndFile(forms.Form):
+    imageUpload = forms.ImageField()
+    fileUpload = forms.FileField()

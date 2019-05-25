@@ -1,8 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.contrib.auth import user_logged_in as user
-
+from PIL import Image
 
 class MyModel(models.Model):
     name = models.CharField(max_length=50)
@@ -18,3 +17,10 @@ class MyModel(models.Model):
 
     def __str__(self):
         return self.name
+
+class ImageAndFileModel(models.Model):
+    image = models.ImageField(upload_to='images/')
+    file = models.FileField(upload_to='files/')
+
+    def __str__(self):
+        return self.file.name+"/"+self.image.name
