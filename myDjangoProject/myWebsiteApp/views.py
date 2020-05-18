@@ -31,25 +31,26 @@ def getMyFilledForms(request):
 def feedback(request):
     if request.method == 'POST':
         myModel= MyModel(user = request.user)
-        getFeedbackObject = GetFeedback(request.POST)
+        getFeedbackObject = GetFeedback(request.POST, instance= myModel)
         if getFeedbackObject.is_valid():
-            myModel.name = getFeedbackObject.cleaned_data['name']
-            myModel.item = getFeedbackObject.cleaned_data['item']
-            myModel.address = getFeedbackObject.cleaned_data['address']
-            myModel.email = getFeedbackObject.cleaned_data['email']
-            myModel.gender = getFeedbackObject.cleaned_data['gender']
-            myModel.password = getFeedbackObject.cleaned_data['password']
-            myModel.quantity = getFeedbackObject.cleaned_data['quantity']
-            myModel.suggestion = getFeedbackObject.cleaned_data['suggestion']
-
-            myModel.save()
-            # getFeedbackObject.save()
+            # myModel.name = getFeedbackObject.cleaned_data['name']
+            # myModel.item = getFeedbackObject.cleaned_data['item']
+            # myModel.address = getFeedbackObject.cleaned_data['address']
+            # myModel.email = getFeedbackObject.cleaned_data['email']
+            # myModel.gender = getFeedbackObject.cleaned_data['gender']
+            # myModel.password = getFeedbackObject.cleaned_data['password']
+            # myModel.quantity = getFeedbackObject.cleaned_data['quantity']
+            # myModel.suggestion = getFeedbackObject.cleaned_data['suggestion']
+            # myModel.save();
+            print(getFeedbackObject.cleaned_data['extra'])
+            getFeedbackObject.save()
             name = getFeedbackObject.cleaned_data['name']
             messages.success(request, f'Form registered successfully with name {name}!')
             return redirect('../myWebsite')
 
         else:
             error = getFeedbackObject.errors.as_data()
+            print(getFeedbackObject.errors)
             return HttpResponse(error)
 
     else:

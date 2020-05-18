@@ -4,11 +4,13 @@ from django.contrib.auth.models import User
 from PIL import Image
 
 class MyModel(models.Model):
+    GENDER =[('male', 'Male'), ('female', 'Female'), ('others', 'Others')]
+    ITEM =[('momo', 'momo'), ('pizza', 'pizza'), ('chwela baji', 'chwela baji'), ('newari khaja set', 'newari khaja set'), ('chicken chilly', 'chicken chilly'), ('coffee', 'coffee')]
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
     email = models.EmailField() #primary_key=True raakhda ni hunxa or by default euta integer primary field id, django le asssign gareko hunxa
-    gender = models.CharField(max_length=50)
-    item = models.CharField(max_length=50)
+    gender = models.CharField(choices= GENDER, max_length=50)
+    item = models.CharField(choices= ITEM, max_length=50)
     quantity = models.IntegerField()
     password = models.CharField(max_length=50)
     suggestion = models.TextField()

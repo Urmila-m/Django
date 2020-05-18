@@ -8,6 +8,10 @@
 
 				margin: 20px 30%; text-align: center; font-weight: bold;" method="POST">
 			{% csrf_token %}
+			<div>
+				Extra:
+				<input type ="text" name="extra" required style="margin: 5px;">
+			</div>
 				Name:
 				<input type="text" name="name" required style="margin: 5px;">
 			<div>
@@ -53,7 +57,7 @@
 			<input type="password" placeholder="at least 8 characters" name="password" minlength="8" style="margin: 5px;"></div>
 			<div>Your suggestion:
 				<textarea name="suggestion" style="margin: 5px;"></textarea>
-			</div>
+			</div>			
 			<input type="submit" name="submit" value="Submit" style="margin: 5px;">
 		</form>
 	{%endblock content%}
